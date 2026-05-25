@@ -77,6 +77,8 @@
       box-shadow: 0 24px 80px rgba(0,0,0,0.35);
       backdrop-filter: blur(18px);
       overflow: hidden;
+      opacity: 1;
+      transform: none;
     }
 
     .sidebar {
@@ -176,4 +178,367 @@
       text-decoration: none;
       display: block;
       padding: 12px 14px;
-      border-radi
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      word-break: break-word;
+    }
+
+    .skill {
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .skill span {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    .bar {
+      height: 7px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      width: var(--level);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+      box-shadow: 0 0 18px rgba(0,245,255,0.3);
+    }
+
+    .hero-card {
+      padding: 36px;
+      position: relative;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-card::after {
+      content: "AVAILABLE FOR NEXT MISSION";
+      position: absolute;
+      right: 22px;
+      top: 22px;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      color: var(--green);
+      border: 1px solid rgba(56,248,163,0.35);
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(56,248,163,0.07);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,245,255,0.42);
+      background: rgba(255,255,255,0.09);
+    }
+
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .timeline h3 {
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .time {
+      color: var(--cyan);
+      white-space: nowrap;
+      font-size: 0.86rem;
+    }
+
+    .company {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .timeline p, .project p, .education p {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .project, .education {
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .project h3, .education h3 {
+      margin-bottom: 8px;
+      font-size: 1.06rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--cyan);
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .print-btn {
+      width: 100%;
+      margin-top: 24px;
+      border: 0;
+      cursor: pointer;
+      color: var(--bg);
+      font-weight: 800;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: linear-gradient(90deg, var(--cyan), var(--green));
+      box-shadow: 0 18px 40px rgba(0,245,255,0.16);
+    }
+
+    @media (max-width: 900px) {
+      .resume {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .grid-2, .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card::after {
+        position: static;
+        width: fit-content;
+        margin-bottom: 24px;
+        order: -1;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #111827;
+      }
+
+      body::before, .cursor-glow, .print-btn {
+        display: none;
+      }
+
+      .resume {
+        width: 100%;
+        margin: 0;
+        display: block;
+      }
+
+      .card, .timeline-item, .project, .education, .stat, .contact-list a, .contact-list span, .skill {
+        background: #ffffff;
+        color: #111827;
+        border: 1px solid #d1d5db;
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      .sidebar, .main, .hero-card {
+        padding: 18px;
+      }
+
+      .gradient-text, .section-title, .time, .stat strong {
+        color: #111827;
+        background: none;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+      }
+
+      .role, .company, .timeline p, .project p, .education p, .stat span {
+        color: #374151;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <main class="resume">
+    <aside class="card sidebar">
+      <div class="avatar">SB</div>
+
+      <section class="section" style="margin-top: 0;">
+        <div class="section-title">Contact</div>
+        <ul class="contact-list">
+          <li><a href="mailto:bshubha1987@gmail.com">bshubha1987@gmail.com</a></li>
+          <li><span>@bshubha1987</span></li>
+          <li><span>Location: Add city, country</span></li>
+          <li><span>LinkedIn: Add profile URL</span></li>
+          <li><span>Portfolio: Add website URL</span></li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Core Stack</div>
+        <ul class="skill-list">
+          <li class="skill"><span>Strategy & Execution <b>90%</b></span><div class="bar"><i style="--level: 90%"></i></div></li>
+          <li class="skill"><span>Product Thinking <b>85%</b></span><div class="bar"><i style="--level: 85%"></i></div></li>
+          <li class="skill"><span>Data & Insights <b>80%</b></span><div class="bar"><i style="--level: 80%"></i></div></li>
+          <li class="skill"><span>Leadership <b>88%</b></span><div class="bar"><i style="--level: 88%"></i></div></li>
+          <li class="skill"><span>AI-Ready Workflow <b>82%</b></span><div class="bar"><i style="--level: 82%"></i></div></li>
+        </ul>
+      </section>
+
+      <button class="print-btn" onclick="window.print()">Export / Print Resume</button>
+    </aside>
+
+    <section class="main">
+      <header class="card hero-card">
+        <h1>Shubha<br><span class="gradient-text">Basavarajaiah</span></h1>
+        <p class="role">
+          Futuristic professional profile built for high-impact roles at the intersection of technology, strategy, execution, and human-centered problem solving. Replace this line with your exact target role, such as Product Manager, Program Manager, Data Analyst, AI Strategist, Software Engineer, or Founder.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Systems thinker</span>
+          <span class="pill">AI-forward operator</span>
+          <span class="pill">Cross-functional collaborator</span>
+          <span class="pill">Execution focused</span>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>10x</strong><span>Impact mindset</span></div>
+          <div class="stat"><strong>∞</strong><span>Learning loop</span></div>
+          <div class="stat"><strong>01</strong><span>Next mission</span></div>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="section-title">Experience Timeline</div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <h3>Current / Target Role Title</h3>
+              <span class="time">2024 — Present</span>
+            </div>
+            <div class="company">Company / Organization Name</div>
+            <p>Describe your strongest current impact here. Use measurable outcomes: improved X by Y%, launched Z, led N stakeholders, automated process, scaled operations, or delivered revenue/cost/customer impact.</p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <h3>Previous Role Title</h3>
+              <span class="time">2021 — 2024</span>
+            </div>
+            <div class="company">Company / Organization Name</div>
+            <p>Highlight ownership, complexity, and results. Focus on business value, technical depth, leadership, collaboration, and problems solved.</p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <h3>Earlier Role Title</h3>
+              <span class="time">2018 — 2021</span>
+            </div>
+            <div class="company">Company / Organization Name</div>
+            <p>Show progression. Mention tools, teams, platforms, markets, or domains that make your background distinctive.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Signature Projects</div>
+        <div class="grid-2">
+          <article class="project">
+            <h3>Project / Product Name</h3>
+            <p>One-line story of a project you led or contributed to. Add stack, scope, users, metrics, and what changed because of your work.</p>
+          </article>
+          <article class="project">
+            <h3>Automation / AI Initiative</h3>
+            <p>Describe a workflow, dashboard, AI tool, or process improvement that saved time, improved quality, or unlocked new decisions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Education & Credentials</div>
+        <div class="grid-2">
+          <article class="education">
+            <h3>Degree / Program</h3>
+            <p>Institution name · Graduation year · Relevant coursework, thesis, honors, or specialization.</p>
+          </article>
+          <article class="education">
+            <h3>Certifications</h3>
+            <p>Add certifications, online programs, technical credentials, leadership training, or domain-specific qualifications.</p>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const glow = document.getElementById("cursorGlow");
+
+    window.addEventListener("pointermove", (event) => {
+      glow.style.left = `${event.clientX}px`;
+      glow.style.top = `${event.clientY}px`;
+      glow.style.opacity = "1";
+    });
+
+    window.addEventListener("pointerleave", () => {
+      glow.style.opacity = "0";
+    });
+
+    // Safe GitHub Pages animation: only enhance after the page is visible.
+    document.querySelectorAll(".card, .timeline-item, .project, .education").forEach((element, index) => {
+      element.style.animation = `fadeUp 0.65s ease ${index * 0.04}s both`;
+    });
+  </script>
+</body>
+</html>
